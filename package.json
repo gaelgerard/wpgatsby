@@ -1,39 +1,34 @@
 {
-  "name": "gatsby-example-using-wordpress",
-  "private": true,
-  "description": "Gatsby example site using the Wordpress source plugin",
-  "version": "1.0.0-beta.6",
+  "name": "gatsby-source-wordpress",
+  "description": "Gatsby source plugin for building websites using the Wordpress CMS as a data source.",
+  "version": "2.0.36",
   "author": "Sebastien Fichot <fichot.sebastien@gmail.com>",
+  "bundleDependencies": false,
   "dependencies": {
-    "gatsby": "^1.9.45",
-    "gatsby-image": "^1.0.4",
-    "gatsby-link": "^1.6.21",
-    "gatsby-plugin-glamor": "^1.6.7",
-    "gatsby-plugin-react-helmet": "^1.0.7",
-    "gatsby-plugin-sharp": "^1.6.7",
-    "gatsby-plugin-styled-components": "latest",
-    "gatsby-plugin-typography": "^1.7.9",
-    "gatsby-source-wordpress": "^2.0.36",
-    "gatsby-transformer-sharp": "^1.6.5",
-    "lodash": "^4.16.4",
-    "react-icons": "^2.2.5",
-    "typography-theme-wordpress-2013": "^0.15.10"
+    "axios": "^0.16.1",
+    "babel-runtime": "^6.26.0",
+    "bluebird": "^3.5.0",
+    "deep-map": "^1.5.0",
+    "deep-map-keys": "^1.2.0",
+    "gatsby-source-filesystem": "^1.5.8",
+    "json-stringify-safe": "^5.0.1",
+    "lodash": "^4.17.4",
+    "qs": "^6.4.0",
+    "uuid": "^3.1.0"
+  },
+  "deprecated": false,
+  "devDependencies": {
+    "cross-env": "^5.0.5"
   },
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "gatsby-plugin",
+    "gatsby-source-plugin"
   ],
   "license": "MIT",
-  "main": "n/a",
   "scripts": {
-    "dev": "gatsby develop",
-    "lint": "./node_modules/.bin/eslint --ext .js,.jsx --ignore-pattern public .",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "develop": "gatsby develop",
-    "build": "gatsby build",
-    "start": "gatsby serve",
-    "predeploy": "gatsby build --prefix-paths"
-  },
-  "devDependencies": {
-    "eslint": "^4.1.1"
+    "build": "babel src --out-dir . --ignore __tests__",
+    "prepublish": "cross-env NODE_ENV=production npm run build",
+    "watch": "babel -w src --out-dir . --ignore __tests__"
   }
 }
